@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC3616E7-3823-4EFB-BF1B-FFEA080AC39A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyCafe</RootNamespace>
+    <AssemblyName>QuanLyCafe</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <CodeAnalysisRuleSet>MixedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ReaLTaiizor, Version=3.7.8.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.7.8.8\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BanDatBLL.cs" />
+    <Compile Include="BLL\BanBLL.cs" />
+    <Compile Include="BLL\DoanhThuBLL.cs" />
+    <Compile Include="BLL\HeThongBLL.cs" />
+    <Compile Include="BLL\LichSuThanhToanCaBLL.cs" />
+    <Compile Include="BLL\LichSuOrderBLL.cs" />
+    <Compile Include="BLL\HoaDonBLL.cs" />
+    <Compile Include="BLL\SanPhamBLL.cs" />
+    <Compile Include="BLL\SuKienBLL.cs" />
+    <Compile Include="BLL\LichSuCaBLL.cs" />
+    <Compile Include="BLL\TaiKhoanBLL.cs" />
+    <Compile Include="BLL\VoucherBLL.cs" />
+    <Compile Include="DAL\BanDAL.cs" />
+    <Compile Include="DAL\BanDatDAL.cs" />
+    <Compile Include="DAL\Database.cs" />
+    <Compile Include="DAL\DoanhThuDAL.cs" />
+    <Compile Include="DAL\HeThongDAL.cs" />
+    <Compile Include="DAL\LichSuThanhToanCaDAL.cs" />
+    <Compile Include="DAL\LichSuOrderDAL.cs" />
+    <Compile Include="DAL\HoaDonDAL.cs" />
+    <Compile Include="DAL\SanPhamDAL.cs" />
+    <Compile Include="DAL\SuKienDAL.cs" />
+    <Compile Include="DAL\LichSuCaDAL.cs" />
+    <Compile Include="DAL\TaiKhoanDAL.cs" />
+    <Compile Include="DAL\VoucherDAL.cs" />
+    <Compile Include="dsHoaDon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLichSuOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLichSuOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLichSuThanhToanCa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLichSuThanhToanCa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Ban.cs" />
+    <Compile Include="DTO\LichSuThanhToanCa.cs" />
+    <Compile Include="DTO\LichSuOrder.cs" />
+    <Compile Include="DTO\BanDat.cs" />
+    <Compile Include="DTO\BaoCao.cs" />
+    <Compile Include="DTO\ControlForm.cs" />
+    <Compile Include="DTO\HeThong.cs" />
+    <Compile Include="DTO\HoaDon.cs" />
+    <Compile Include="DTO\SanPham.cs" />
+    <Compile Include="DTO\LichSuCa.cs" />
+    <Compile Include="DTO\SuKien.cs" />
+    <Compile Include="DTO\TaiKhoan.cs" />
+    <Compile Include="DTO\TaiKhoanHienTai.cs" />
+    <Compile Include="DTO\KhuonMat.cs" />
+    <Compile Include="DTO\Voucher.cs" />
+    <Compile Include="GUI\ChinhSuaBanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaBanForm.Designer.cs">
+      <DependentUpon>ChinhSuaBanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaHeThongForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaHeThongForm.Designer.cs">
+      <DependentUpon>ChinhSuaHeThongForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaSanPham.Designer.cs">
+      <DependentUpon>ChinhSuaSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaSuKienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaSuKienForm.Designer.cs">
+      <DependentUpon>ChinhSuaSuKienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaTaiKhoanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaTaiKhoanForm.Designer.cs">
+      <DependentUpon>ChinhSuaTaiKhoanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaThongTinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaThongTinForm.Designer.cs">
+      <DependentUpon>ChinhSuaThongTinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaVoucherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChinhSuaVoucherForm.Designer.cs">
+      <DependentUpon>ChinhSuaVoucherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChiTietBanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChiTietBanForm.Designer.cs">
+      <DependentUpon>ChiTietBanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DoanhThuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DoanhThuForm.Designer.cs">
+      <DependentUpon>DoanhThuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HoaDonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HoaDonForm.Designer.cs">
+      <DependentUpon>HoaDonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LichSuCaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LichSuCaForm.Designer.cs">
+      <DependentUpon>LichSuCaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ReportViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ReportViewForm.Designer.cs">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThanhToanThanhCongForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThanhToanThanhCongForm.Designer.cs">
+      <DependentUpon>ThanhToanThanhCongForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\XuatHoaDonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\XuatHoaDonForm.Designer.cs">
+      <DependentUpon>XuatHoaDonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\ChinhSuaBanForm.resx">
+      <DependentUpon>ChinhSuaBanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaHeThongForm.resx">
+      <DependentUpon>ChinhSuaHeThongForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaSanPham.resx">
+      <DependentUpon>ChinhSuaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaSuKienForm.resx">
+      <DependentUpon>ChinhSuaSuKienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaTaiKhoanForm.resx">
+      <DependentUpon>ChinhSuaTaiKhoanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaThongTinForm.resx">
+      <DependentUpon>ChinhSuaThongTinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChinhSuaVoucherForm.resx">
+      <DependentUpon>ChinhSuaVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChiTietBanForm.resx">
+      <DependentUpon>ChiTietBanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DoanhThuForm.resx">
+      <DependentUpon>DoanhThuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HoaDonForm.resx">
+      <DependentUpon>HoaDonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LichSuCaForm.resx">
+      <DependentUpon>LichSuCaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ReportViewForm.resx">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThanhToanThanhCongForm.resx">
+      <DependentUpon>ThanhToanThanhCongForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\XuatHoaDonForm.resx">
+      <DependentUpon>XuatHoaDonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="rptBaoCaoDoanhThuHoaDon.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCaLamNhanVien.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSoLuongSanPhamBanRa.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="dsHoaDon.xsc">
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </None>
+    <None Include="dsHoaDon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoaDon.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsHoaDon.xss">
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </None>
+    <None Include="dsLichSuOrder.xsc">
+      <DependentUpon>dsLichSuOrder.xsd</DependentUpon>
+    </None>
+    <None Include="dsLichSuOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLichSuOrder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsLichSuOrder.xss">
+      <DependentUpon>dsLichSuOrder.xsd</DependentUpon>
+    </None>
+    <None Include="dsLichSuThanhToanCa.xsc">
+      <DependentUpon>dsLichSuThanhToanCa.xsd</DependentUpon>
+    </None>
+    <None Include="dsLichSuThanhToanCa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLichSuThanhToanCa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsLichSuThanhToanCa.xss">
+      <DependentUpon>dsLichSuThanhToanCa.xsd</DependentUpon>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e8349cbaee4a18d613941c2cc7f70129.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\272456.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_24_1px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2069532.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25694.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SeekPng.com_default-avatar-png_5147412.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DA0001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DA0002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DA0003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DA0004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DA0005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\my_filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\my_loc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banh_loc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuoc_loc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TU0010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_chuadat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_dadat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thucan_filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\khac_filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coupon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voucher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coupon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\invoice.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
+    <Error Condition="!Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
+  </Target>
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+</Project>
